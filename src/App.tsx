@@ -1,13 +1,14 @@
 import React from 'react';
 import './App.css';
-import LandingPage from "./components/LandingPage"
+import LandingPage, {AppState} from "./components/LandingPage"
 
 function App() {
-  return (
+    const pastFailedState: AppState = window.localStorage.getItem("autoAppQualification");
+    return (
     <div className="App">
-      <LandingPage />
+        <LandingPage pastFailedState={pastFailedState} />
     </div>
-  );
+    );
 }
 
 export default App;

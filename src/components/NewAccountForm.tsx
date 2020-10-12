@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, TextField } from "@material-ui/core";
 import { FormikProps } from "formik";
-import {makeStyles} from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 
 const NewAccountForm: React.FunctionComponent<FormikProps<any>> = (props : FormikProps<any>) => {
     const classes = useStyles();
@@ -15,7 +15,7 @@ const NewAccountForm: React.FunctionComponent<FormikProps<any>> = (props : Formi
         handleSubmit
     } = props;
 
-    const change = (field: string, event: any) => {
+    const change = (field: string, event: React.SyntheticEvent) => {
         handleChange(event);
         setFieldTouched(field, true, false);
     };
@@ -67,7 +67,7 @@ const NewAccountForm: React.FunctionComponent<FormikProps<any>> = (props : Formi
     );
 }
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
     max: {
         maxWidth: 800,
         margin: "0 auto"

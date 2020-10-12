@@ -1,4 +1,5 @@
 import { CarMake, CarModel } from "../store/actions/Car.actionsTypes"
+import {initialFormValuesI} from "../components/LandingPage";
 
 export const fakeQueryCarMake = (): Promise<CarMake> =>
      new Promise (resolve => setTimeout(() =>
@@ -10,7 +11,7 @@ export const fakeQueryCarModel = (): Promise<CarModel> =>
             resolve(carModel)
         , 200));
 
-export const fakeProcessApplication = (data: any): Promise<any> =>
+export const fakeProcessApplication = (data: initialFormValuesI): Promise<object> =>
     new Promise( (resolve, reject) => setTimeout((data) => {
             if(data.price > 1000000){
                 const error = {
@@ -19,7 +20,7 @@ export const fakeProcessApplication = (data: any): Promise<any> =>
                 }
                 reject(error);
             }
-            const buyingLimit = data.income / 5;
+            const buyingLimit: Number = data.income / 5;
             if(data.creditScore < 600 || data.price > buyingLimit){
                 const error = {
                     message: "one or more fields did not meet the minimum requirements"

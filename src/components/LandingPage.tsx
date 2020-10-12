@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { queryCarMake, queryCarModel } from "../store/actions/Car.actions";
-import {Grid, Typography} from "@material-ui/core";
+import {Grid, Theme, Typography} from "@material-ui/core";
 import UserForm from "./UserForm";
 import { Formik } from "formik";
 import { userSchema } from "../utils/YupSchema";
@@ -17,12 +17,19 @@ interface PropsI {
 enum AppStates {
     Passed = "PASSED",
     Failed = "FAILED",
-    None = ""
 };
 
 export type AppState = string | null;
 
-const initialFormValues = {
+export interface initialFormValuesI {
+    price: string,
+    make: string,
+    model: string,
+    income: string,
+    creditScore: string
+}
+
+const initialFormValues: initialFormValuesI = {
     price: '',
     make: '',
     model: '',
@@ -41,7 +48,7 @@ const LandingPage: React.FunctionComponent<PropsI> = (props) => {
         dispatch(queryCarModel());
     });
 
-    const handleSubmit = (formValues : any) => {
+    const handleSubmit = (formValues : initialFormValuesI) => {
         fakeProcessApplication(formValues).then(response => {
             setAppState(AppStates.Passed);
         }).catch( error => {
@@ -95,7 +102,7 @@ const LandingPage: React.FunctionComponent<PropsI> = (props) => {
     }
 }
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
     hard: {
         margin: theme.spacing(4)
     },

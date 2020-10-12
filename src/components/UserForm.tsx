@@ -28,7 +28,7 @@ const UserForm: React.FunctionComponent<FormikProps<any>>  = (props : FormikProp
     } = props;
 
     const carMakeAndModel = useSelector((state: CarRootState) => state.car);
-    const change = (field: string, event: any) => {
+    const change = (field: string, event: React.SyntheticEvent) => {
         handleChange(event);
         setFieldTouched(field, true, false);
     };
@@ -124,7 +124,7 @@ const UserForm: React.FunctionComponent<FormikProps<any>>  = (props : FormikProp
     );
 }
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
     max: {
         maxWidth: 800,
         margin: "0 auto"

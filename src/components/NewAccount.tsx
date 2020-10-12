@@ -1,18 +1,25 @@
 import React, { useState } from "react";
-import {Grid, Typography} from "@material-ui/core";
+import {Grid, Theme, Typography} from "@material-ui/core";
 import NewAccountForm from "./NewAccountForm";
 import { newAccountSchema } from "../utils/YupSchema";
 import {Formik} from "formik";
 import {makeStyles} from "@material-ui/core/styles";
 
+interface initialFormValuesI {
+    username: string,
+    password: string,
+    passwordConfirmation: string
+}
+
+const initialFormValues: initialFormValuesI = {
+    username: '',
+    password: '',
+    passwordConfirmation: ''
+};
+
 const NewAccount: React.FunctionComponent = () => {
     const classes = useStyles();
     const [ accountCreatedFlag, setAccountCreatedFlag ] = useState(false);
-    const initialFormValues = {
-        username: '',
-        password: '',
-        passwordConfirmation: ''
-    };
 
     const handleSubmit = () => {
         setAccountCreatedFlag(true);
@@ -48,7 +55,7 @@ const NewAccount: React.FunctionComponent = () => {
     );
 }
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
     hard: {
         margin: theme.spacing(2)
     },

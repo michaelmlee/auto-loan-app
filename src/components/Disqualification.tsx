@@ -1,5 +1,5 @@
 import React from "react";
-import {Grid, Typography} from "@material-ui/core";
+import {Grid, Theme, Typography} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
 
 interface PropsI {
@@ -19,7 +19,7 @@ const Disqualification: React.FunctionComponent<PropsI> = (props) => {
     );
 };
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
     hard: {
         margin: theme.spacing(2)
     },

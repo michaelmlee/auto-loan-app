@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
-import LandingPage, {AppState} from "./components/LandingPage"
+import LandingPage, { AppState } from "./components/LandingPage"
 
-function App() {
+const App: React.FunctionComponent = () => {
     const pastFailedState: AppState = window.localStorage.getItem("autoAppQualification");
     return (
     <div className="App">

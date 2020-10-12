@@ -1,4 +1,3 @@
-import { Dispatch } from "redux";
 import { fakeQueryCarMake, fakeQueryCarModel } from "../../fakeNetworkCalls/fakeNetworkCalls";
 import { CarModel, CarMake } from "./Car.actionsTypes";
 

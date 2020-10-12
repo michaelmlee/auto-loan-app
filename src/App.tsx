@@ -1,14 +1,11 @@
 import React from 'react';
-import {useDispatch} from "react-redux";
 import './App.css';
-import { queryCarMake } from "./store/actions/Car.actions";
+import LandingPage from "./components/LandingPage"
 
 function App() {
-    const dispatch = useDispatch();
-    dispatch(queryCarMake());
   return (
     <div className="App">
-      testing
+      <LandingPage />
     </div>
   );
 }

@@ -3,12 +3,12 @@ import { CarMake, CarModel } from "../store/actions/Car.actionsTypes"
 export const fakeQueryCarMake = (): Promise<CarMake> =>
      new Promise (resolve => setTimeout((() =>
         resolve(carMake))
-     , 500));
+     , 200));
 
 export const fakeQueryCarModel = (): Promise<CarModel> =>
     new Promise (resolve => setTimeout((() =>
             resolve(carModel))
-        , 500));
+        , 200));
 
 const carMake: CarMake = [
     "Acura",

@@ -13,7 +13,6 @@ import InputLabel from '@material-ui/core/InputLabel';
 import { CarRootState } from '../store/reducers/Car.reducer';
 // import useEventCallback from "@material-ui/core/utils/useEventCallback";
 import { CarModel } from "../store/actions/Car.actionsTypes";
-import { creditScoreRanges } from "../utils/constants";
 import { FormikProps } from "formik";
 
 const UserForm = (props : FormikProps<any>) => {
@@ -29,7 +28,6 @@ const UserForm = (props : FormikProps<any>) => {
 
     const carMakeAndModel = useSelector((state: CarRootState) => state.car);
     const change = (field: string, event: any) => {
-        event.persist();
         handleChange(event);
         setFieldTouched(field, true, false);
     };
@@ -41,7 +39,7 @@ const UserForm = (props : FormikProps<any>) => {
                 value={price}
                 onChange={(event: any) => change('price', event)}
                 error={touched.price && Boolean(errors.price)}
-                helperText={errors.price}
+                helperText={touched.price ? errors.price : ''}
             />
             <InputLabel>Auto Make</InputLabel>
             <FormControl key={"make"} fullWidth>
@@ -52,12 +50,14 @@ const UserForm = (props : FormikProps<any>) => {
                 >
                     {carMakeAndModel.carMake.map((value, key) => <MenuItem key={key} value={value}>{value}</MenuItem>)}
                 </Select>
-                <FormHelperText
-                    id={"make-helperText"}
-                    error={touched.make && Boolean(errors.make)}
-                >
-                    {errors.make}
-                </FormHelperText>
+                {touched.make && Boolean(errors.make) && (
+                    <FormHelperText
+                        id={"make-helperText"}
+                        error={touched.make && Boolean(errors.make)}
+                    >
+                        {errors.make}
+                    </FormHelperText>
+                )}
             </FormControl>
             <InputLabel>Auto Model</InputLabel>
             <FormControl key={"model"} fullWidth>
@@ -71,12 +71,14 @@ const UserForm = (props : FormikProps<any>) => {
                         <MenuItem key={key} value={value}>{value}</MenuItem>)
                     }
                 </Select>
-                <FormHelperText
-                    id={"model-helperText"}
-                    error={touched.model && Boolean(errors.model)}
-                >
-                    {errors.model}
-                </FormHelperText>
+                {touched.model && Boolean(errors.model) && (
+                    <FormHelperText
+                        id={"model-helperText"}
+                        error={touched.model && Boolean(errors.model)}
+                    >
+                        {errors.model}
+                    </FormHelperText>
+                )}
             </FormControl>
             <TextField
                 name={"income"}
@@ -84,26 +86,16 @@ const UserForm = (props : FormikProps<any>) => {
                 value={income}
                 onChange={(event: any) => change('income', event)}
                 error={touched.income && Boolean(errors.income)}
-                helperText={errors.income}
+                helperText={touched.income ? errors.income : ''}
             />
-            <InputLabel>Estimated Credit Score</InputLabel>
-            <FormControl key={"creditScore"} fullWidth>
-                <Select
-                    name={"creditScore"}
-                    value={creditScore}
-                    onChange={(event: any) => change('creditScore', event)}
-                >
-                    {creditScoreRanges.map((value, key) =>
-                        <MenuItem key={`score-${key}`} value={value}>{value}</MenuItem>
-                    )}
-                </Select>
-                <FormHelperText
-                    id={"creditScore-helperText"}
-                    error={touched.creditScore && Boolean(errors.creditScore)}
-                >
-                    {errors.creditScore}
-                </FormHelperText>
-            </FormControl>
+            <TextField
+                name={"creditScore"}
+                label={"Estimated Credit Score"}
+                value={creditScore}
+                onChange={(event: any) => change('creditScore', event)}
+                error={touched.creditScore && Boolean(errors.creditScore)}
+                helperText={touched.creditScore ? errors.creditScore : ''}
+            />
             <Button
                 type="submit"
                 color="primary"

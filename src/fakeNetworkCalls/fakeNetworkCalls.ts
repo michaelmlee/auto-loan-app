@@ -1,14 +1,39 @@
 import { CarMake, CarModel } from "../store/actions/Car.actionsTypes"
 
 export const fakeQueryCarMake = (): Promise<CarMake> =>
-     new Promise (resolve => setTimeout((() =>
-        resolve(carMake))
+     new Promise (resolve => setTimeout(() =>
+        resolve(carMake)
      , 200));
 
 export const fakeQueryCarModel = (): Promise<CarModel> =>
-    new Promise (resolve => setTimeout((() =>
-            resolve(carModel))
+    new Promise (resolve => setTimeout(() =>
+            resolve(carModel)
         , 200));
+
+export const fakeProcessApplication = (data: any): Promise<any> =>
+    new Promise( (resolve, reject) => setTimeout((data) => {
+            if(data.price > 1000000){
+                const error = {
+                    code: 400,
+                    message: "cannot request for an auto loan worth over a million dollars"
+                }
+                reject(error);
+            }
+            const buyingLimit = data.income / 5;
+            if(data.creditScore < 600 || data.price > buyingLimit){
+                const error = {
+                    message: "You do not qualify"
+                }
+                reject(error);
+            } else {
+                const response = {
+                    status: 200,
+                    body: "qualified"
+                }
+                resolve(response);
+            }
+        },200, data));
+
 
 const carMake: CarMake = [
     "Acura",

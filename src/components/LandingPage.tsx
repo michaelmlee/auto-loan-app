@@ -5,6 +5,7 @@ import { Typography } from "@material-ui/core";
 import UserForm from "./UserForm";
 import { Formik } from "formik";
 import { userSchema } from "../utils/UserYupSchema";
+import {fakeProcessApplication} from "../fakeNetworkCalls/fakeNetworkCalls";
 
 const LandingPage: React.FunctionComponent = () => {
     const dispatch = useDispatch();
@@ -13,8 +14,14 @@ const LandingPage: React.FunctionComponent = () => {
         dispatch(queryCarMake());
         dispatch(queryCarModel());
     })
-
-    const handleSubmit = () => {};
+    //TODO clean up types
+    const handleSubmit = (formValues : any) => {
+        fakeProcessApplication(formValues).then(response => {
+            //TODO take them to qualification page
+        }).catch( error => {
+            //TODO take them to disqualification page
+        });
+    };
 
     const initialFormValues = {
         price: '',

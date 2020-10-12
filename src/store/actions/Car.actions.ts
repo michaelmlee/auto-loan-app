@@ -1,4 +1,5 @@
 import { Dispatch } from "redux";
+import { fakeQueryCarMake } from "../../fakeNetworkCalls/fakeNetworkCalls";
 
 export const QUERY_CAR_MAKE_LOADING: string = 'QUERY_CAR_MAKE_LOADING'
 export const QUERY_CAR_MAKE_SUCCESS: string = 'QUERY_CAR_MAKE_SUCCESS'
@@ -7,7 +8,7 @@ export const QUERY_CAR_MODEL_LOADING: string = 'QUERY_CAR_MODEL_LOADING'
 export const QUERY_CAR_MODEL_SUCCESS: string = 'QUERY_CAR_MODEL_SUCCESS'
 export const QUERY_CAR_MODEL_FAIL: string = 'QUERY_CAR_MODEL_FAIL'
 
-export const queryCarMakeLoading = (payload: any): any => ({
+export const queryCarMakeLoading = (payload?: any): any => ({
     type: QUERY_CAR_MAKE_LOADING,
     payload
 });
@@ -37,4 +38,12 @@ export const queryCarModelFail = (payload: any): any => ({
     payload
 });
 
-
+export const queryCarMake = () => (dispatch: (arg0: any) => void) => {
+    dispatch(queryCarMakeLoading());
+    fakeQueryCarMake().then((response: any) => {
+        dispatch(queryCarMakeSuccess(response))
+        console.log(response);
+    }).catch((error: any) => {
+        dispatch(queryCarMakeFail(error));
+    });
+};

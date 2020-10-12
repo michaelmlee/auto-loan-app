@@ -1,8 +1,10 @@
 import React from "react";
 import { Button, TextField } from "@material-ui/core";
 import { FormikProps } from "formik";
+import {makeStyles} from "@material-ui/core/styles";
 
 const NewAccountForm: React.FunctionComponent<FormikProps<any>> = (props : FormikProps<any>) => {
+    const classes = useStyles();
     const {
         values: { username, password, passwordConfirmation},
         handleChange,
@@ -19,7 +21,7 @@ const NewAccountForm: React.FunctionComponent<FormikProps<any>> = (props : Formi
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className={classes.max} onSubmit={handleSubmit}>
             <TextField
                 name={"username"}
                 label={"Username"}
@@ -64,5 +66,12 @@ const NewAccountForm: React.FunctionComponent<FormikProps<any>> = (props : Formi
         </form>
     );
 }
+
+const useStyles = makeStyles((theme) => ({
+    max: {
+        maxWidth: 800,
+        margin: "0 auto"
+    }
+}));
 
 export default NewAccountForm

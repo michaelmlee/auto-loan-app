@@ -5,13 +5,15 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from "react-redux";
 import store from "./store/Store"
+import {MuiThemeProvider} from "@material-ui/core";
+import theme from "./style"
 
 ReactDOM.render(
-  <React.StrictMode>
+  <MuiThemeProvider theme={theme}>
       <Provider store={store}>
         <App />
       </Provider>
-  </React.StrictMode>,
+  </MuiThemeProvider>,
   document.getElementById('root')
 );
 

@@ -40,7 +40,6 @@ export const queryCarMake = () => (dispatch: (arg0: any) => void) => {
     dispatch(queryCarMakeLoading());
     fakeQueryCarMake().then((response: any) => {
         dispatch(queryCarMakeSuccess(response))
-        console.log(response);
     }).catch((error: any) => {
         dispatch(queryCarMakeFail(error));
     });
@@ -50,7 +49,6 @@ export const queryCarModel = () => (dispatch: (arg0: any) => void) => {
     dispatch(queryCarModelLoading());
     fakeQueryCarModel().then((response: any) => {
         dispatch(queryCarModelSuccess(response))
-        console.log(response);
     }).catch((error: any) => {
         dispatch(queryCarModelFail(error));
     });

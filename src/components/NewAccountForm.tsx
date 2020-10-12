@@ -27,6 +27,8 @@ const NewAccountForm: React.FunctionComponent<FormikProps<any>> = (props : Formi
                 onChange={(event: any) => change('username', event)}
                 error={touched.username && Boolean(errors.username)}
                 helperText={touched.username ? errors.username : ''}
+                variant="filled"
+                fullWidth
             />
             <TextField
                 name={"password"}
@@ -36,6 +38,8 @@ const NewAccountForm: React.FunctionComponent<FormikProps<any>> = (props : Formi
                 onChange={(event: any) => change('password', event)}
                 error={touched.password && Boolean(errors.password)}
                 helperText={touched.password ? errors.password : ''}
+                variant="filled"
+                fullWidth
             />
             <TextField
                 name={"passwordConfirmation"}
@@ -45,11 +49,15 @@ const NewAccountForm: React.FunctionComponent<FormikProps<any>> = (props : Formi
                 onChange={(event: any) => change('passwordConfirmation', event)}
                 error={touched.passwordConfirmation && Boolean(errors.passwordConfirmation)}
                 helperText={touched.passwordConfirmation ? errors.passwordConfirmation : ''}
+                variant="filled"
+                fullWidth
             />
             <Button
                 type="submit"
-                color="primary"
                 disabled={!isValid || Object.keys(touched).length === 0}
+                color="primary"
+                variant="contained"
+                fullWidth
             >
                 Create Account
             </Button>

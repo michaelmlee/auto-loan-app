@@ -22,7 +22,7 @@ export const fakeProcessApplication = (data: any): Promise<any> =>
             const buyingLimit = data.income / 5;
             if(data.creditScore < 600 || data.price > buyingLimit){
                 const error = {
-                    message: "You do not qualify"
+                    message: "one or more fields did not meet the minimum requirements"
                 }
                 reject(error);
             } else {
@@ -32,7 +32,7 @@ export const fakeProcessApplication = (data: any): Promise<any> =>
                 }
                 resolve(response);
             }
-        },200, data));
+        },800, data));
 
 
 const carMake: CarMake = [

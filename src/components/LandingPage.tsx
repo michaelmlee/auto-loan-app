@@ -4,8 +4,10 @@ import { queryCarMake, queryCarModel } from "../store/actions/Car.actions";
 import { Typography } from "@material-ui/core";
 import UserForm from "./UserForm";
 import { Formik } from "formik";
-import { userSchema } from "../utils/UserYupSchema";
+import { userSchema } from "../utils/YupSchema";
 import {fakeProcessApplication} from "../fakeNetworkCalls/fakeNetworkCalls";
+import NewAccount from "./NewAccount";
+import Disqualification from "./Disqualification";
 
 interface PropsI {
     pastFailedState: AppState
@@ -50,11 +52,11 @@ const LandingPage: React.FunctionComponent<PropsI> = (props) => {
     switch(appState) {
         case AppStates.Passed:
             return (
-                <>passed!</>
+                <NewAccount />
             );
         case AppStates.Failed:
             return (
-                <>failed!</>
+                <Disqualification error={errorMsg} />
             );
         default:
             return (

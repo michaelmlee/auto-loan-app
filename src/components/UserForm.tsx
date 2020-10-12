@@ -15,7 +15,7 @@ import { CarRootState } from '../store/reducers/Car.reducer';
 import { CarModel } from "../store/actions/Car.actionsTypes";
 import { FormikProps } from "formik";
 
-const UserForm = (props : FormikProps<any>) => {
+const UserForm: React.FunctionComponent<FormikProps<any>>  = (props : FormikProps<any>) => {
     const {
         values: { price, make, model, income, creditScore},
         handleChange,

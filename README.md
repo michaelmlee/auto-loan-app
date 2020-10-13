@@ -18,7 +18,7 @@ npm run test:coverage
 | -----------|----------|-----------|-------|
 | ![Statements](https://img.shields.io/badge/Coverage-59.54%25-red.svg "Make me better!") | ![Branches](https://img.shields.io/badge/Coverage-52.87%25-red.svg "Make me better!") | ![Functions](https://img.shields.io/badge/Coverage-53.52%25-red.svg "Make me better!") | ![Lines](https://img.shields.io/badge/Coverage-58.33%25-red.svg "Make me better!") |
 
-##About this App
+### About this App
 built using the following:
  * React
  * Typescript

@@ -10,7 +10,7 @@ export interface InitialStateI {
     carModel: CarModel
 }
 
-const initialState: InitialStateI = {
+export const initialState: InitialStateI = {
     carMake: [],
     carModel: {}
 }

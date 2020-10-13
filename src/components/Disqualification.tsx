@@ -2,7 +2,7 @@ import React from "react";
 import {Grid, Theme, Typography} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
 
-interface PropsI {
+export interface PropsI {
     error: string
 };
 

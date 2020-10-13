@@ -1,9 +1,13 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { shallow } from 'enzyme';
 import App from './App';
+import LandingPage, { AppStates } from "./components/LandingPage";
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe('App', () => {
+  const wrapper = shallow(<App />);
+
+    it('LandingPage', () => {
+      const el = <LandingPage pastFailedState={AppStates.Passed} />;
+      expect(wrapper.find(LandingPage)).toHaveLength(1);
+    });
 });

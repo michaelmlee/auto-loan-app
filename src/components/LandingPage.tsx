@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { queryCarMake, queryCarModel } from "../store/actions/Car.actions";
-import {Grid, Theme, Typography} from "@material-ui/core";
+import { Grid, Theme, Typography } from "@material-ui/core";
 import UserForm from "./UserForm";
 import { Formik } from "formik";
 import { userSchema } from "../utils/YupSchema";
-import {fakeProcessApplication} from "../fakeNetworkCalls/fakeNetworkCalls";
+import { fakeProcessApplication } from "../fakeNetworkCalls/fakeNetworkCalls";
 import NewAccount from "./NewAccount";
 import Disqualification from "./Disqualification";
-import {makeStyles} from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 
 interface PropsI {
     pastFailedState: AppState
 };
 
-enum AppStates {
+export enum AppStates {
     Passed = "PASSED",
     Failed = "FAILED",
 };

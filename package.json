@@ -7,14 +7,20 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "@types/enzyme": "^3.10.7",
+    "@types/enzyme-adapter-react-16": "^1.0.6",
     "@types/jest": "^24.9.1",
     "@types/node": "^12.12.67",
     "@types/react": "^16.9.51",
     "@types/react-dom": "^16.9.8",
     "@types/react-redux": "^7.1.9",
     "@types/redux": "^3.6.0",
+    "@types/redux-mock-store": "^1.0.2",
     "@types/redux-thunk": "^2.1.0",
     "@types/yup": "^0.29.8",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.5",
+    "enzyme-to-json": "^3.6.1",
     "firebase": "^7.23.0",
     "formik": "^2.2.0",
     "react": "^16.13.1",
@@ -25,6 +31,7 @@
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
     "redux-firestore": "^0.14.0",
+    "redux-mock-store": "^1.5.4",
     "typescript": "^3.7.5",
     "yup": "^0.29.3"
   },
@@ -32,6 +39,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:coverage": "react-scripts test --watchAll --coverage",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -39,6 +47,28 @@
     "rules": {
       "no-template-curly-in-string": "off"
     }
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!<rootDir>/node_modules/",
+      "!src/index.tsx"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 75,
+        "lines": 80,
+        "statements": 80
+      }
+    },
+    "coverageReporters": [
+      "json-summary",
+      "text"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   },
   "browserslist": {
     "production": [

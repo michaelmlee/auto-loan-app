@@ -1,44 +1,40 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a Mock Auto Loan App
 
-## Available Scripts
-
+### How to Run App Locally
 In the project directory, you can run:
+```
+npm install
+npm start
+```
 
-### `npm start`
+### How to Test App with Coverage
+In the project directory, you can run:
+```
+npm run test:coverage
+```
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+##About this App
+built using the following:
+ * React
+ * Typescript
+ * Redux
+ * Material UI
+ * Formik
+ * Yup
+ * Jest
+ * Enzyme
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+The goal for this application was to make it structured and simple. The goal is always to build small components that are reusable. However, there is still room to break this application down into smaller pieces. In those few places, types and logic were grouped in the same file or component in the effort to save some time.
 
-### `npm test`
+#### Validation
+Form Validation was a central part of this application and Formik with Yup schema were used to make this happen. Both tools are technologies that I was familiar with as well as have found effective in my past experiences. 
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Styling
+Material UI Library was the framework I went with because of its simple nature to get the requirement of "plain but deliberate" accomplished.
 
-### `npm run build`
+#### Routing
+I choose not to use routing in this application because of the Disqualification Page requirement. I could have done routing with the happy path, but decided to follow a consistent pattern for this small application. If this project had a few more pieces/components, then I would definitely leverage React Router. 
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Backtracked
+When I first started this project, I was planning to leverage Firebase as an Asynchronous backend call to make queries to for a car model and makes as well as possibly a semi realistic Authentication after signing up the user. I decided to backtracked on that idea rather quickly as it felt unnecessary to add those non project requirements at this stage. 
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).

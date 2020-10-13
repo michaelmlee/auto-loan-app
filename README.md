@@ -13,6 +13,11 @@ In the project directory, you can run:
 npm run test:coverage
 ```
 
+### Test Coverage
+| Statements | Branches | Functions | Lines |
+| -----------|----------|-----------|-------|
+| ![Statements](https://img.shields.io/badge/Coverage-59.54%25-red.svg "Make me better!") | ![Branches](https://img.shields.io/badge/Coverage-52.87%25-red.svg "Make me better!") | ![Functions](https://img.shields.io/badge/Coverage-53.52%25-red.svg "Make me better!") | ![Lines](https://img.shields.io/badge/Coverage-58.33%25-red.svg "Make me better!") |
+
 ##About this App
 built using the following:
  * React
@@ -37,4 +42,3 @@ I choose not to use routing in this application because of the Disqualification 
 
 #### Backtracked
 When I first started this project, I was planning to leverage Firebase as an Asynchronous backend call to make queries to for a car model and makes as well as possibly a semi realistic Authentication after signing up the user. I decided to backtracked on that idea rather quickly as it felt unnecessary to add those non project requirements at this stage. 
-

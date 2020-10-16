@@ -1,21 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import NewAccount from "./NewAccount";
-import { Provider } from 'react-redux'
-import thunk from "redux-thunk";
-import configureStore from "redux-mock-store";
-
-// const middlewares: Array<any> = [thunk];
-// const mockStore = configureStore(middlewares);
-// const store = mockStore({
-//     car: {
-//         carMake: ["Acura", "BMW"],
-//         carModel: {
-//             Acura: [ "MDX", "RDX"],
-//             BMW: [ "M3", "M4"]
-//         }
-//     }
-// });
 
 describe('<NewAccount>', () => {
     it('should render', () => {

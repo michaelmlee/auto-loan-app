@@ -46,7 +46,7 @@ const LandingPage: React.FunctionComponent<PropsI> = (props) => {
     useEffect(() => {
         dispatch(queryCarMake());
         dispatch(queryCarModel());
-    });
+    },[dispatch]);
 
     const handleSubmit = (formValues : initialFormValuesI) => {
         fakeProcessApplication(formValues).then(response => {
